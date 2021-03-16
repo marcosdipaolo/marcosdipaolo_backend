@@ -11,4 +11,3 @@ Route::get('/migrate', function (Request $request) {
         return response()->json($e->getMessage(), 500);
     }
 });
-    
