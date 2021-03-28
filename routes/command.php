@@ -3,11 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/migrate', function (Request $request) {
-    try {
-        \Artisan::call('migrate', ['--path' => 'database/migrations', '--force' => true]);
-        return response()->json(['message' => 'migrated'], 200);
-    } catch (\Exception $e) {
-        return response()->json($e->getMessage(), 500);
-    }
+Route::middleware('auth:api')->group(function(){
+    Route::post('/migrate', [\App\Http\Controllers\CommandController::class, 'migrate']);
+    Route::post('/routes-cache', [\App\Http\Controllers\CommandController::class, 'routesCache']);
+    Route::post('/config-cache', [\App\Http\Controllers\CommandController::class, 'configCache']);
+    Route::post('/clear-cache', [\App\Http\Controllers\CommandController::class, 'clearCache']);
+    Route::post('/clear-view', [\App\Http\Controllers\CommandController::class, 'clearView']);
 });
+

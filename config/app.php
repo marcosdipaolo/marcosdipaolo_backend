@@ -2,6 +2,8 @@
 
 return [
 
+    'user_registration_enabled' => env('USER_REGISTRATION_ENABLED', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
