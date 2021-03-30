@@ -3,6 +3,7 @@
 return [
 
     'user_registration_enabled' => env('USER_REGISTRATION_ENABLED', false),
+    'user_contact_form_enabled' => env('USER_CONTACT_FORM_ENABLED', true),
 
     /*
     |--------------------------------------------------------------------------

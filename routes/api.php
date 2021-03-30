@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->group(function(){
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+    Route::post('mail', [\App\Http\Controllers\MailController::class, 'contactForm']);
 });
 
 Route::post('/user', [\App\Http\Controllers\UserController::class, 'create']);

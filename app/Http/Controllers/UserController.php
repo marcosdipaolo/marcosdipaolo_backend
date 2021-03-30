@@ -11,9 +11,13 @@ class UserController extends Controller
     public function create(UserCreateRequest $request): JsonResponse
     {
         try {
-            return response()->json(User::create($request->all()));
-        }
-        catch(\Throwable $e){
+            return response()->json(User::create(
+                array_merge(
+                    $request->all(),
+                    ["password" => bcrypt($request->getPass())]
+                )
+            ));
+        } catch (\Throwable $e) {
             return response()->json(['error' => $e->getMessage()]);
         }
     }

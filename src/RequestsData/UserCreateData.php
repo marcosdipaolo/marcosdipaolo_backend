@@ -1,6 +1,6 @@
 <?php
 
-namespace MDP\DataContracts;
+namespace MDP\RequestsData;
 
 interface UserCreateData
 {

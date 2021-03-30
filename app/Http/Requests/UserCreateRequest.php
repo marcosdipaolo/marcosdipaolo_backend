@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use MDP\DataContracts\UserCreateData;
+use MDP\RequestsData\UserCreateData;
 
 class UserCreateRequest extends FormRequest implements UserCreateData
 {
