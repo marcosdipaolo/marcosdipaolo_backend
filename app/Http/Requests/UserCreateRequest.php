@@ -35,7 +35,7 @@ class UserCreateRequest extends FormRequest implements UserCreateData
     public function prepareForValidation()
     {
         $this->merge([
-            'api_token' => bcrypt('macri suck balls')
+            'api_token' => md5('marcosdipaolo')
         ]);
     }
 
