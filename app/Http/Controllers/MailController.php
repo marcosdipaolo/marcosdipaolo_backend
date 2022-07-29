@@ -22,12 +22,13 @@ class MailController extends Controller
     public function contactForm(ContactFormRequest $request): JsonResponse
     {
         try {
+            \Log::info($request->all());
             $this->mailApi->sendContactFormEmail($request);
             return response()->json(['message' => 'Message sent.'], 200);
         }
         catch(\Throwable $e) {
             \Log::error($e);
-            return response()->json(['error' => $e->getMessage()], $e->getCode());
+            return response()->json(['error' => $e->getMessage()], 500);
         }
     }
 }
